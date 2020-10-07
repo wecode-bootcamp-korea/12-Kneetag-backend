@@ -1,3 +1,4 @@
 {
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "python.pythonPath": "/Users/soo/miniconda3/envs/12-Kneetag-backend/bin/python"
 }

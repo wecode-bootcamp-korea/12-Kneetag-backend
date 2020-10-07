@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 import my_settings
 from pathlib import Path
+# # 로깅설정?
+# import logging
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent

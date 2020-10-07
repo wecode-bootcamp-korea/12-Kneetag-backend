@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -79,7 +80,13 @@ WSGI_APPLICATION = 'kneetag.wsgi.application'
 
 DATABASES = my_settings.DATABASES
 
-
+EMAIL_BACKEND=my_settings.EMAIL['EMAIL_BACKEND']
+EMAIL_USE_TLS=my_settings.EMAIL['EMAIL_USE_TLS']
+EMAIL_PORT=my_settings.EMAIL['EMAIL_PORT']
+EMAIL_HOST=my_settings.EMAIL['EMAIL_HOST']
+EMAIL_HOST_USER=my_settings.EMAIL['EMAIL_HOST_USER']
+EMAIL_HOST_PASSWORD=my_settings.EMAIL['EMAIL_HOST_PASSWORD']
+SERVER_EMAIL=my_settings.EMAIL['SERVER_EMAIL']
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
@@ -145,3 +152,21 @@ CORS_ALLOW_HEADERS = (
     'x-requested-with',
 		
 )
+
+LOGGING = {
+    'disable_existing_loggers': False,
+    'version': 1,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'level': 'DEBUG',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
+        },
+    },
+}

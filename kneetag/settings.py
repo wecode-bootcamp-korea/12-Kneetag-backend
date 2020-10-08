@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'user',
+    'product',
 ]
 
 MIDDLEWARE = [
@@ -149,8 +150,7 @@ CORS_ALLOW_HEADERS = (
     'origin',
     'user-agent',
     'x-csrftoken',
-    'x-requested-with',
-		
+    'x-requested-with',	
 )
 
 LOGGING = {

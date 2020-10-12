@@ -16,7 +16,7 @@ def login_decorator(func):
             data         = jwt.decode(access_token, SECRET['secret'], algorithm = ALGORITHM)
             user         = User.objects.get(id=data['user_id'])
             request.user = user
-
+            
         except jwt.DecodeError:
             return JsonResponse({'message':'INVALID TOKEN'}, status=400)
         except jwt.ExpiredSignatureError:

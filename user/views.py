@@ -34,10 +34,9 @@ class SignUpView(View):
             )
 
             name         = user.name
-            domain       = get_current_site(request).domain
             expire       = datetime.datetime.utcnow() + datetime.timedelta(seconds=600)
             token        = jwt.encode({'user_id':user.id, 'exp':expire}, SECRET['secret'], algorithm=ALGORITHM).decode('utf-8')
-            message_data = message(domain, token, name)
+            message_data = message(token, name)
 
             mail_title = '안녕하세요. freitag입니다. 이메일 인증을 완료해주세요.'
             to_mail    = data['email']

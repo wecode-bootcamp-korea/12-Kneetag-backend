@@ -54,6 +54,8 @@ class SignUpView(View):
     def patch(self, request):
         data            = json.loads(request.body)
         user            = User.objects.get(id=request.user.id)
+        if data['password'] == '':
+            return JsonResponse({'message':'INVALID REQUEST'}, status=400)
         hashed_password = bcrypt.hashpw(data['password'].encode('utf-8'), bcrypt.gensalt()).decode('utf-8')
         user.password   = hashed_password 
         user.save()
@@ -81,10 +83,10 @@ class SignInView(View):
                 if not bcrypt.checkpw(data['password'].encode('utf-8'), user.password.encode('utf-8')):
                     return JsonResponse({'message':'WRONG PASSWORD'}, status=400)
             
-                expire = datetime.datetime.utcnow() + datetime.timedelta(seconds=3600)
+                expire = datetime.datetime.utcnow() + datetime.timedelta(hours=24)
                 access_token = jwt.encode({'user_id':user.id, 'exp':expire}, SECRET['secret'], algorithm=ALGORITHM).decode('utf-8')
 
-                return JsonResponse({'Authorization':access_token}, status=200)
+                return JsonResponse({'Authorization':access_token, 'user_name':user.name}, status=200)
             
             return JsonResponse({'message':'INVALID REQUEST'}, status=400)
 

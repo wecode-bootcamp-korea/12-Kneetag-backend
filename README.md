@@ -5,7 +5,7 @@
 
 ## 🛠 기술 스택
 
-**백엔드 2명 ([정다솜](https://velog.io/@dnpxm387))**
+**백엔드 2명 (김수현,[정다솜](https://velog.io/@dnpxm387))**
 - Django
 - Python
 - PyJWT

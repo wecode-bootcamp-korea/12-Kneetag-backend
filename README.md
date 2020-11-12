@@ -1,3 +1,5 @@
+
+
 # Freitag Shop Clone Coding 
 
 ### 🗒 프로젝트 기간 
@@ -5,7 +7,7 @@
 
 ## 🛠 기술 스택
 
-**백엔드 2명 ([김수현](https://velog.io/@finelinefe),[정다솜](https://velog.io/@dnpxm387))**
+**백엔드 2명 ([김수현](https://velog.io/@finelinefe/FREITAG-%ED%81%B4%EB%A1%A0-2%EC%B0%A8-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%ED%9B%84%EA%B8%B0),[정다솜](https://velog.io/@dnpxm387))**
 - Django
 - Python
 - PyJWT
